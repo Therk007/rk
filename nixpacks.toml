@@ -6,7 +6,8 @@ cmds = [
   "python3 -m venv venv",
   "./venv/bin/pip install --upgrade pip",
   "./venv/bin/pip install -r requirements.txt",
-  "chmod +x bgmi"
+  "gcc powr.c -o bgmi",   # C source code ko binary me convert karna
+  "chmod +x bgmi"         # Binary ko execute karne ka permission dena
 ]
 
 [start]
