@@ -1,13 +1,15 @@
+# nixpacks.toml
+
 [phases.setup]
-nixPkgs = ["python311", "python311Packages.virtualenv"]
+nixPkgs = ["python311", "python311Packages.virtualenv", "gcc"]
 
 [phases.install]
 cmds = [
-  "python3 -m venv venv",
+  "python3 -m venv venv", 
   "./venv/bin/pip install --upgrade pip",
   "./venv/bin/pip install -r requirements.txt",
-  "gcc power.c -o bgmi",   # C source code ko binary me convert karna
-  "chmod +x bgmi"         # Binary ko execute karne ka permission dena
+  "gcc power.c -o bgmi",    # C code ko compile karna
+  "chmod +x bgmi"           # Compile hone ke baad executable permission dena
 ]
 
 [start]
