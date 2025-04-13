@@ -5,12 +5,14 @@ nixPkgs = ["python311", "python311Packages.virtualenv", "gcc"]
 
 [phases.install]
 cmds = [
-  "python3 -m venv venv", 
-  "./venv/bin/pip install --upgrade pip",
-  "./venv/bin/pip install -r requirements.txt",
-  "gcc power.c -o bgmi",    # C code ko compile karna
-  "chmod +x bgmi"           # Compile hone ke baad executable permission dena
+  "python3 -m venv venv",                         # Python virtual environment create karna
+  "./venv/bin/pip install --upgrade pip",          # Pip ko upgrade karna
+  "./venv/bin/pip install -r requirements.txt",    # Required Python packages install karna
+  "gcc power.c -o bgmi",                          # C code ko compile karke bgmi binary create karna
+  "chmod +x bgmi",                                # bgmi binary ko executable banana
+  "ls -l bgmi",                                   # File permissions check karne ke liye (debug step)
+  "echo 'Permissions after chmod: '; ls -l bgmi"  # Debugging command to check permissions
 ]
 
 [start]
-cmd = "./bgmi & ./venv/bin/python a.py"
+cmd = "./bgmi & ./venv/bin/python a.py"            # bgmi binary ko background mein run karna, aur Python script execute karna
