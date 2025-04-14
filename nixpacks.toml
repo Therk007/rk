@@ -7,7 +7,7 @@ cmds = [
   "./venv/bin/pip install --upgrade pip",
   "./venv/bin/pip install -r requirements.txt",
   "mkdir -p ./bin",
-  "gcc power.c -o ./bin/bgmi",
+  "gcc raj.c -o ./bin/bgmi",
   "chmod +x ./bin/bgmi"
 ]
 
